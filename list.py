@@ -72,9 +72,89 @@ def intersectingList(fList, sList):
 print(intersectingList(firstList, secondList))
 
 #============================x=================================================
-#Exercise 6: Merged Sorted List => Merges two sorted lists into a single sorted list (without using sort()).
+#Exercise 05: Merged Sorted List => Merges two sorted lists into a single sorted list (without using sort()).
 fSortedList = [1,3,5]
 sSortedLsit = [2,4,6]
+
+def mergedSortedList(firstList, secondList):
+    firstList.extend(secondList)
+    for i in range(len(firstList)):
+        for j in range(len(firstList)):
+            if firstList[i] < firstList[j]: # [1, 2, 3, 4, 5, 6]
+                firstList[i], firstList[j] = firstList[j], firstList[i]
+    print(firstList)
+
+mergedSortedList(fSortedList, sSortedLsit)
+
+#============================x=================================================
+#Exercise 06:Nested comprehension => Transforms a list of lists into a single list (flatten).
+
+#basic solution
+listNoFlatten = [[1,2],[3,4],[5]]
+flatten = []
+for item in listNoFlatten:
+    for i in range(len(item)):
+        flatten.append(item[i])
+
+print(flatten)
+
+#using list compréhension
+def flattenList(nestedList):
+    flatten = [i for item in nestedList for i in item]
+    return flatten
+
+print(flattenList(listNoFlatten)) 
+
+
+#============================x=================================================
+#Exercise 07: Matrix => diagonal = 1 and rest = 0
+matrix , matrixDimension = [], 3
+def doMatrix(m, d):
+    for i in range(d):
+        subMatrix = []
+        for j in range(d):
+            subMatrix.append(1) if i == j else subMatrix.append(0)
+        m.append(subMatrix)
+    
+    for i in range(d):
+        print(m[i])
+
+
+doMatrix(matrix,matrixDimension)
+
+#============================x=================================================
+#Exercise 08: diagonally Count how many times each element appears in a list
+#basic
+input = ['a', 'b', 'a', 'c', 'b', 'a']
+output = {}
+for i in range(len(input)):
+    countItem = 0
+    for j in range(len(input)):
+        if input[i] == input[j] : countItem+= 1
+    output.update({f"{input[i]}": countItem})
+
+print(output)
+
+#using count method
+for item in input:
+    output[item] = input.count(item)
+print(output)
+
+#using collections.counter()
+from collections import Counter
+def counterElement(i):
+    output = dict(Counter(i))
+    return output
+
+print(counterElement(input))
+
+#============================x=================================================
+#Exercise 09: Anagrams => Write a function that checks if two lists of characters are anagrams.
+aList = ['a', 'b', 'c']
+bList = ['c', 'a', 'b'] 
+
+
+
 
 
 
