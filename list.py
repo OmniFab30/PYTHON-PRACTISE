@@ -153,8 +153,42 @@ print(counterElement(input))
 aList = ['a', 'b', 'c']
 bList = ['c', 'a', 'b'] 
 
+#basic
+if len(aList) == len(bList):
+    valid = True
+    for element in aList:
+        if bList.count(element) != 1:
+            valid = False
+            break
+    print(valid)
+else: 
+    print("length of array different")
+ 
+#using list comprehension
+print(len(aList) == len(bList) and all(bList.count(element) == 1 for element in aList))
+
+#using set constructor
+print(set(aList) == set(bList))
+
+#using collections.Counter()
+print(Counter(aList) == Counter(bList))
+
+#============================x=================================================
+#Exercise 10: Sequence detection => Checks if a list contains a given subsequence.
+parentList = [1,2,3,4,5]
+sequence = [3,4]
+
+#using issubset()
+print(set(sequence).issubset(set(parentList)))
+
+#using issuperset()
+print(set(parentList).issuperset(set(sequence)))
+
+#using intersection()
+print((bool)(set(parentList).intersection(set(sequence))))
 
 
-
+#============================x=================================================
+#Exercise 11: Sequence detection => Checks if a list contains a given subsequence.
 
 
