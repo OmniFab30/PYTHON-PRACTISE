@@ -178,6 +178,22 @@ print(Counter(aList) == Counter(bList))
 parentList = [1,2,3,4,5]
 sequence = [3,4]
 
+#checking a contiguous sublist using slice method
+def contains_subsequence(pList, subseq):
+    n, m = len(pList), len(subseq)
+    for i in range(n - m + 1):
+        if pList[i: i + m] == subseq: return True
+    return False
+
+print(contains_subsequence(parentList, sequence))
+
+#checking a contiguous sublist using any() method
+def containSubsequence(pList, subseq):
+    m = len(subseq)
+    return any(pList[i: i + m] == subseq for i in range(len(pList) - m + 1))
+
+print(containSubsequence(parentList, sequence))
+
 #using issubset()
 print(set(sequence).issubset(set(parentList)))
 
@@ -187,8 +203,15 @@ print(set(parentList).issuperset(set(sequence)))
 #using intersection()
 print((bool)(set(parentList).intersection(set(sequence))))
 
+# Non-contiguous subsequence using iter() and all() methods
+def is_subsequence(pList, subsequence):
+    it = iter(pList)
+    return all(element in it for element in subsequence)
+
+print(is_subsequence(parentList, sequence))
 
 #============================x=================================================
-#Exercise 11: Sequence detection => Checks if a list contains a given subsequence.
+#Exercise 11: Custom sorting
+
 
 
