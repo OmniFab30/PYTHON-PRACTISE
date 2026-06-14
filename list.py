@@ -212,6 +212,22 @@ print(is_subsequence(parentList, sequence))
 
 #============================x=================================================
 #Exercise 11: Custom sorting
+#basic 
+tupleList, i = [("Bina", 12), ("Fabiano", 19), ("Ali", 15)], 0
+sortedList = sorted(tupleList, key = lambda x : x[i])
+print(sortedList)
 
+#============================x=================================================
+#Exercise 12: search nearist value
+numbers, target = [10, 22, 35, 47, 55], 41
+closet = min(numbers, key = lambda x : abs(x - target))
+print(closet)
 
+#============================x=================================================
+#Exercise 13: compression
+listNoCompressed, listCompressed = [1,1,1,2,2,4,8,9,7,7,2,1,3], []
+for i in listNoCompressed:
+    listCompressed.append((i, listNoCompressed.count(i)))
 
+listCompressed = sorted(list(set(listCompressed)), key = lambda x :x[0])
+print(listCompressed)
